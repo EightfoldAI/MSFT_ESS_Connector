@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectGuid>{90B59259-719C-4ED6-829B-7DB98B5D7639}</ProjectGuid>
+    <AssemblyName>Microsoft.Azure.Connectors.EightFold</AssemblyName>
+    <RootNamespace>Microsoft.Azure.Connectors.EightFold</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(RepoConfigMSBuildProjectTypesRoot)\Connector\WithoutWebAppCode.props" />
+  <Import Project="$(RepoConfigMSBuildProjectTypesRoot)\Connector\WithoutWebAppCode.targets" />
+</Project>

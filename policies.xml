@@ -1,0 +1,55 @@
+<policies>
+  <inbound>
+    <set-header name="Test-Info" exists-action="override">
+      <value>test marker</value>
+    </set-header>
+    <!-- rate-limit limits spike activity. renewal-period is in seconds. Valid range [1,300] (1 sec - 5 mins) -->
+    <!-- quota enforces a call volume and/or bandwidth. bandwidth is in kilobytes. renewal-period is in seconds. Min value is 300 (5 mins) -->
+    <rate-limit-by-key counter-key="@(context.Request.MatchedParameters[&quot;connectionId&quot;])" calls="100" renewal-period="60" flexible-retry-window="true" />
+    <base />
+    <import-fragment name="GetInternalCacheValue" key="@{$PolicySourceCode.GetAccessTokenKey}" variable-name="AccessToken" />
+    <choose>
+      <when condition="@{$PolicySourceCode.IsAccessTokenNull}">
+        <send-request mode="new" response-variable-name="IssueTokenResponse" timeout="60" ignore-error="false">
+          <!-- Move to config -->
+          <set-url>https://apiv2.eightfold-wu.ai/oauth/v1/authenticate</set-url>
+          <set-method>POST</set-method>
+          <set-header name="Content-Type" exists-action="override">
+            <value>application/x-www-form-urlencoded</value>
+          </set-header>
+          <set-header name="Authorization" exists-action="override">
+            <value>@{$PolicySourceCode.GetAuthorizationToken}</value>
+          </set-header>
+          <set-body>@{$PolicySourceCode.GetTokenBody}</set-body>
+        </send-request>
+        <choose>
+          <when condition="@{$PolicySourceCode.GetTokenFailed}">
+            <set-variable name="ProcessError" value="@{$PolicySourceCode.ProcessErrorAccessToken}" />
+          </when>
+        </choose>
+        <!--<import-fragment name="SetInternalCacheValue" key="@{$PolicySourceCode.GetAccessTokenKey}" value="@{$PolicySourceCode.GetAccessToken}" duration="1800" /> -->
+        <!--<set-variable name="AccessToken" value="@{$PolicySourceCode.GetAccessToken}" /> -->
+        <set-header name="Authorization" exists-action="override">
+          <value>@{$PolicySourceCode.GetAccessToken}</value>
+        </set-header>
+      </when>
+    </choose>
+    <set-header name="x-ms-apim-tokens" exists-action="delete" />
+    <set-header name="origin" exists-action="delete" />
+    <set-header name="Content-Type" exists-action="override">
+      <value>application/json</value>
+    </set-header>
+    <set-query-parameter name="api-version" exists-action="delete" />
+  </inbound>
+  <outbound>
+    <base />
+    <choose>
+      <!-- Process Successful Response -->
+      <when condition="@{$PolicySourceCode.IsSuccessfulResponse}">
+        <set-header name="Content-Type" exists-action="override">
+          <value>application/json</value>
+        </set-header>
+      </when>
+    </choose>
+  </outbound>
+</policies>

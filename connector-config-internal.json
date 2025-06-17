@@ -1,0 +1,53 @@
+{
+  "parameterDefaults": {
+    "serviceUrl": "https://apiv2.eightfold-wu.ai/"
+  },
+  "api": {
+    "generalInformation": {
+      "publisher": "Microsoft"
+    },
+    "metadata": {
+      "useNewApimVersion": "true",
+      "stackOwner": "EightFold ai.",
+      "source": "marketplace",
+      "hideKey": "iomeightfold"
+    },
+    "connectionParameters": {
+      "key": {
+        "type": "string",
+        "uiDefinition": {
+          "constraints": {
+            "required": "true"
+          },
+          "displayName": "Username",
+          "description": "Eightfold Project username",
+          "tooltip": "Provide API Key received during FedEx Developer portal registration"
+        }
+      },
+      "secret": {
+        "type": "securestring",
+        "uiDefinition": {
+          "constraints": {
+            "clearText": false,
+            "required": "true"
+          },
+          "displayName": "Password",
+          "description": "Eightfold Project Password",
+          "tooltip": "Provide Password received during Eightfold Developer portal registration"
+        }
+      },
+      "Authorization": {
+        "type": "securestring",
+        "uiDefinition": {
+          "constraints": {
+            "clearText": false,
+            "required": "true"
+          },
+          "displayName": "Authorization",
+          "description": "Eightfold Project Authorization",
+          "tooltip": "Provide Authorization received during Eightfold Developer portal registration"
+        }
+      }
+    }
+  }
+}

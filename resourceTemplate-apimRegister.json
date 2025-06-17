@@ -1,0 +1,315 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "apiName": "eightfold",
+    "flavorSpecificSettings": {
+      "DOD": {
+        "serviceUrl": "https://apiv2.eightfold-wu.ai/"
+      },
+      "DOGFOOD": {
+        "serviceUrl": "https://apiv2.eightfold-wu.ai/"
+      },
+      "FAIRFAX": {
+        "serviceUrl": "https://apiv2.eightfold-wu.ai/"
+      },
+      "GCC": {
+        "serviceUrl": "https://apiv2.eightfold-wu.ai/"
+      },
+      "GCCHIGH": {
+        "serviceUrl": "https://apiv2.eightfold-wu.ai/"
+      },
+      "MOONCAKE": {
+        "serviceUrl": "https://apiv2.eightfold-wu.ai/"
+      },
+      "PRODUCTION": {
+        "serviceUrl": "https://apiv2.eightfold-wu.ai/"
+      },
+      "USNAT": {
+        "serviceUrl": "https://apiv2.eightfold-wu.ai/"
+      },
+      "USSEC": {
+        "serviceUrl": "https://apiv2.eightfold-wu.ai/"
+      }
+    },
+    "serviceUrl": "[variables('flavorSpecificSettings')[parameters('environmentFlavor')].serviceUrl]",
+    "apimSpecificSettings": {},
+    "perRegionSettings": {
+      "brazil-001": {
+        "redirectMode": "global"
+      },
+      "europe-002": {
+        "redirectMode": "global"
+      },
+      "france-001": {
+        "redirectMode": "global"
+      },
+      "germany-001": {
+        "redirectMode": "global"
+      },
+      "italy-001": {
+        "redirectMode": "global"
+      },
+      "korea-001": {
+        "redirectMode": "global"
+      },
+      "logic-apis-brazilsoutheast": {
+        "redirectMode": "global"
+      },
+      "logic-apis-centraluseuap": {
+        "redirectMode": "global"
+      },
+      "logic-apis-chilecentral": {
+        "redirectMode": "global"
+      },
+      "logic-apis-eastus2euap": {
+        "redirectMode": "global"
+      },
+      "logic-apis-francecentral": {
+        "redirectMode": "global"
+      },
+      "logic-apis-francesouth": {
+        "redirectMode": "global"
+      },
+      "logic-apis-germanynorth": {
+        "redirectMode": "global"
+      },
+      "logic-apis-germanywestcentral": {
+        "redirectMode": "global"
+      },
+      "logic-apis-israelcentral": {
+        "redirectMode": "global"
+      },
+      "logic-apis-italynorth": {
+        "redirectMode": "global"
+      },
+      "logic-apis-jioindiawest-001": {
+        "redirectMode": "global"
+      },
+      "logic-apis-koreacentral-001": {
+        "redirectMode": "global"
+      },
+      "logic-apis-koreasouth-001": {
+        "redirectMode": "global"
+      },
+      "logic-apis-mexicocentral": {
+        "redirectMode": "global"
+      },
+      "logic-apis-newzealandnorth": {
+        "redirectMode": "global"
+      },
+      "logic-apis-norwayeast": {
+        "redirectMode": "global"
+      },
+      "logic-apis-norwaywest-001": {
+        "redirectMode": "global"
+      },
+      "logic-apis-polandcentral": {
+        "redirectMode": "global"
+      },
+      "logic-apis-qatarcentral": {
+        "redirectMode": "global"
+      },
+      "logic-apis-southafricanorth": {
+        "redirectMode": "global"
+      },
+      "logic-apis-southafricawest-001": {
+        "redirectMode": "global"
+      },
+      "logic-apis-spaincentral": {
+        "redirectMode": "global"
+      },
+      "logic-apis-swedencentral": {
+        "redirectMode": "global"
+      },
+      "logic-apis-switzerlandnorth": {
+        "redirectMode": "global"
+      },
+      "logic-apis-switzerlandwest": {
+        "redirectMode": "global"
+      },
+      "logic-apis-taiwannorth": {
+        "redirectMode": "global"
+      },
+      "logic-apis-taiwannorthwest": {
+        "redirectMode": "global"
+      },
+      "logic-apis-uaecentral": {
+        "redirectMode": "global"
+      },
+      "logic-apis-uaenorth": {
+        "redirectMode": "global"
+      },
+      "logic-apis-usnateast-001": {
+        "redirectMode": "global"
+      },
+      "logic-apis-usnatwest-001": {
+        "redirectMode": "global"
+      },
+      "logic-apis-usseceast-001": {
+        "redirectMode": "global"
+      },
+      "logic-apis-ussecwest-001": {
+        "redirectMode": "global"
+      },
+      "logic-apis-westus3": {
+        "redirectMode": "global"
+      },
+      "norway-001": {
+        "redirectMode": "global"
+      },
+      "poland-001": {
+        "redirectMode": "global"
+      },
+      "qatar-001": {
+        "redirectMode": "global"
+      },
+      "singapore-001": {
+        "redirectMode": "global"
+      },
+      "southafrica-001": {
+        "redirectMode": "global"
+      },
+      "sweden-001": {
+        "redirectMode": "global"
+      },
+      "switzerland-001": {
+        "redirectMode": "global"
+      },
+      "tip1-shared-002": {
+        "redirectMode": "global"
+      },
+      "tip1europe-001": {
+        "redirectMode": "global"
+      },
+      "uae-001": {
+        "redirectMode": "global"
+      },
+      "uk-001": {
+        "redirectMode": "global"
+      },
+      "unitedstates-002": {
+        "redirectMode": "global"
+      },
+      "usnat-001": {
+        "redirectMode": "global"
+      },
+      "ussec-001": {
+        "redirectMode": "global"
+      }
+    },
+    "allSupportedLanguages": [],
+    "logicAppsSupportedLanguages": [],
+    "localizations": {}
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Web/apiManagementAccounts/apis",
+      "properties": {
+        "generalInformation": {
+          "tier": "Premium",
+          "displayName": "Eightfold collection",
+          "description": "Eightfold custom connector for testing the endpoints",
+          "iconUrl": "[parameters('iconUrl')]",
+          "publisher": "Microsoft"
+        },
+        "path": "eightfold",
+        "protocols": [
+          "https"
+        ],
+        "backendService": {
+          "serviceUrl": "[variables('serviceUrl')]"
+        },
+        "apiDefinitionUrl": "[deploymentContext('apiDefinitionUrl')]",
+        "interfaces": {},
+        "policies": {
+          "content": "<policies><inbound><set-variable name=\"isCodeless\" value=\"@(true)\" /><set-header name=\"Apihub-Subscription-Key\" exists-action=\"delete\" /><set-header name=\"Test-Info\" exists-action=\"override\"><value>test marker</value></set-header><rate-limit-by-key counter-key=\"@(context.Request.MatchedParameters[&quot;connectionId&quot;])\" calls=\"100\" renewal-period=\"60\" flexible-retry-window=\"true\" /><base /><choose><when condition=\"@{var productId = context?.Product?.Id ?? string.Empty;if (!string.Equals(productId, &quot;ApiHub&quot;, StringComparison.OrdinalIgnoreCase)){return false;}var executionRestrictions = context.Variables.GetValueOrDefault&lt;string&gt;(&quot;executionRestrictions&quot;, null);return !string.IsNullOrWhiteSpace(executionRestrictions);}\"><set-variable name=\"executionRestrictionsVersion\" value=\"@{var executionRestrictions = JObject.Parse(context.Variables[&quot;executionRestrictions&quot;] as string);return executionRestrictions[&quot;version&quot;]?.Value&lt;int?&gt;() ?? 1;}\" /><set-variable name=\"_ApimLogMessage_message\" value=\"@(&quot;Validating Execution Restrictions version: &quot; + context.Variables[&quot;executionRestrictionsVersion&quot;])\" /><log-to-eventhub logger-id=\"APIMMessageLogger\">@{string message = (string)context.Variables[\"_ApimLogMessage_message\"];message = string.IsNullOrEmpty(message) ? string.Empty : string.Concat('\"', message.Replace(\"\\\"\", \"\\\"\\\"\"), '\"');return string.Join(\",\",DateTime.UtcNow.ToString(\"o\"),context.Variables.GetValueOrDefault(\"clientRequestId\", string.Empty),context.Variables.GetValueOrDefault(\"connectionId\", string.Empty),context.Api.Name,context.Deployment.ServiceName,message,\"informational\",context.Operation.Id );}</log-to-eventhub><choose><when condition=\"@((context.Variables[&quot;executionRestrictionsVersion&quot;] as int?) == 1)\"><rewrite-uri template=\"@{try{var executionRestrictions = JObject.Parse(context.Variables[&quot;executionRestrictions&quot;] as string);var internalPolicy = JObject.Parse(executionRestrictions?[&quot;policy&quot;]?.ToString() ?? &quot;{}&quot;);var type = internalPolicy?[&quot;type&quot;]?.ToString();var segments = context.Request.Url.Path.Split('/');if (type == &quot;tabular&quot;){var apiVer = executionRestrictions[&quot;apiVer&quot;]?.Value&lt;int?&gt;() ?? 1;var pathTableIdx = apiVer &gt; 1 ? 5 : 4;if (segments.Length &lt;= pathTableIdx){throw new Exception(&quot;EXPECTED400: Error validating Execution Restrictions - Bad URL&quot;);}var table = System.Net.WebUtility.UrlDecode(System.Net.WebUtility.UrlDecode(segments[pathTableIdx]));var allowedActions = internalPolicy[&quot;dataSources&quot;]?[table.ToLowerInvariant()]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedActions != null &amp;&amp; allowedActions.Contains(context.Request.Method, StringComparer.OrdinalIgnoreCase)){return context.Request.Url.Path;}throw new Exception($&quot;EXPECTED403: Method {context.Request.Method.ToLowerInvariant()} is not allowed for table {table}&quot;);}else if (type == &quot;action&quot;){var allowedActions = internalPolicy[&quot;dataSources&quot;]?[&quot;actions&quot;]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedActions != null &amp;&amp; allowedActions.Contains(context.Operation.Id, StringComparer.OrdinalIgnoreCase)){return context.Request.Url.Path;}throw new Exception($&quot;EXPECTED403: Action {context.Operation.Id} is not allowed&quot;);}else if (type == &quot;allow&quot;){return context.Request.Url.Path;}else if (type == &quot;unused&quot;){throw new Exception($&quot;EXPECTED403: Operation is not allowed&quot;);}throw new Exception(&quot;EXPECTED400: Error validating Execution Restrictions - Bad Execution Restrictions&quot;);}catch (Exception exception){if (exception.Message.StartsWith(&quot;EXPECTED&quot;)){throw exception;}throw new Exception(&quot;EXPECTED500: Unexpected error validating v1 execution restrictions:\\n&quot; + exception.Message);}}\" /></when><when condition=\"@((context.Variables[&quot;executionRestrictionsVersion&quot;] as int?) == 2)\"><rewrite-uri template=\"@{try{var executionRestrictions = JObject.Parse(context.Variables[&quot;executionRestrictions&quot;] as string);var internalPolicy = JObject.Parse(executionRestrictions?[&quot;policy&quot;]?.ToString() ?? &quot;{}&quot;);var segments = context.Request.Url.Path.Split('/');var apiVer = executionRestrictions[&quot;apiVer&quot;]?.Value&lt;int?&gt;() ?? -1;var hasVersionSegment = apiVer &gt;= 2 || apiVer == -1 &amp;&amp; Regex.IsMatch(segments[1], &quot;^([vV][0-9]+)$&quot;);var tablesOrProceduresSegmentIdx = hasVersionSegment ? 4 : 3;string tablesOrProceduresSegment = null;string tableOrProcedureName = null;if (segments.Length &gt; tablesOrProceduresSegmentIdx &amp;&amp;(segments[tablesOrProceduresSegmentIdx].ToLowerInvariant() == &quot;tables&quot; || segments[tablesOrProceduresSegmentIdx].ToLowerInvariant() == &quot;procedures&quot;) ){if (segments.Length &lt;= tablesOrProceduresSegmentIdx + 1){throw new Exception(&quot;EXPECTED400: Error validating Execution Restrictions - Bad URL&quot;);}tablesOrProceduresSegment = segments[tablesOrProceduresSegmentIdx].ToLowerInvariant();tableOrProcedureName = System.Net.WebUtility.UrlDecode(System.Net.WebUtility.UrlDecode(segments[tablesOrProceduresSegmentIdx + 1]));}if (tablesOrProceduresSegment == &quot;tables&quot;){var allowedMethods = internalPolicy[&quot;tabularActions&quot;]?[tableOrProcedureName.ToLowerInvariant()]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedMethods != null &amp;&amp; allowedMethods.Contains(context.Request.Method, StringComparer.OrdinalIgnoreCase)){return context.Request.Url.Path;}throw new Exception($&quot;EXPECTED403: Method {context.Request.Method} is not allowed for table {tableOrProcedureName}&quot;);}if (string.Equals(context.Operation.Id, &quot;ExecuteProcedure_V2&quot;, StringComparison.OrdinalIgnoreCase)){if (tablesOrProceduresSegment == &quot;procedures&quot;){var allowedProcedures = internalPolicy[&quot;serviceActions&quot;]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedProcedures != null &amp;&amp; allowedProcedures.Contains(tableOrProcedureName, StringComparer.OrdinalIgnoreCase)){return context.Request.Url.Path;}throw new Exception($&quot;EXPECTED403: Procedure {tableOrProcedureName} is not allowed&quot;);}throw new Exception($&quot;EXPECTED400: Error validating Execution Restrictions - Bad URL&quot;);}var allowedActions = internalPolicy[&quot;serviceActions&quot;]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedActions != null &amp;&amp; allowedActions.Contains(context.Operation.Id, StringComparer.OrdinalIgnoreCase)){return context.Request.Url.Path;}throw new Exception($&quot;EXPECTED403: Action {context.Operation.Id} is not allowed&quot;);}catch (Exception exception){if (exception.Message.StartsWith(&quot;EXPECTED&quot;)){throw exception;}throw new Exception(&quot;EXPECTED500: Unexpected error validating v2 execution restrictions:\\n&quot; + exception.Message);}}\" /></when><when condition=\"@((context.Variables[&quot;executionRestrictionsVersion&quot;] as int?) == 3)\"><rewrite-uri template=\"@{try{var executionRestrictions = JObject.Parse(context.Variables[&quot;executionRestrictions&quot;] as string);var internalPolicy = JObject.Parse(executionRestrictions?[&quot;policy&quot;]?.ToString() ?? &quot;{}&quot;);{var datasetBypassId = &quot;497fc035-eb75-479f-8486-41a848a9549a&quot;;var allowedActions = internalPolicy[&quot;datasets&quot;]?[datasetBypassId]?[&quot;serviceActions&quot;]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedActions != null &amp;&amp; allowedActions.Contains(context.Operation.Id, StringComparer.OrdinalIgnoreCase)){return context.Request.Url.Path;}}var segments = context.Request.Url.Path.Split('/');var apiVer = executionRestrictions[&quot;apiVer&quot;]?.Value&lt;int?&gt;() ?? -1;var hasVersionSegment = apiVer &gt;= 2 || apiVer == -1 &amp;&amp; segments.Length &gt; 1 &amp;&amp; Regex.IsMatch(segments[1], &quot;^([vV][0-9]+)$&quot;);var datasetsSegmentIdx = hasVersionSegment ? 2 : 1;var datasetValueIdx = datasetsSegmentIdx + 1;var tablesOrProceduresSegmentIdx = datasetsSegmentIdx + 2;var tableOrProcedureValueIdx = tablesOrProceduresSegmentIdx + 1;if (segments.Length &lt;= datasetValueIdx ||!string.Equals(segments[datasetsSegmentIdx], &quot;datasets&quot;, StringComparison.OrdinalIgnoreCase)){throw new Exception($&quot;EXPECTED403: Action {context.Operation.Id} is not allowed&quot;);}string dataset = System.Net.WebUtility.UrlDecode(System.Net.WebUtility.UrlDecode(segments[datasetValueIdx])).ToLowerInvariant();if (!string.IsNullOrWhiteSpace(internalPolicy[&quot;obfuscations&quot;]?[dataset]?.ToString())){dataset = internalPolicy[&quot;obfuscations&quot;]?[dataset].ToString();segments[datasetValueIdx] = dataset;}{var allowedActions = internalPolicy[&quot;datasets&quot;]?[dataset]?[&quot;serviceActions&quot;]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedActions != null &amp;&amp; allowedActions.Contains(context.Operation.Id, StringComparer.OrdinalIgnoreCase)){return string.Join(&quot;/&quot;, segments);}}if (segments.Length &lt;= tableOrProcedureValueIdx){throw new Exception($&quot;EXPECTED403: Action {context.Operation.Id} is not allowed&quot;);}var tablesOrProceduresSegment = segments[tablesOrProceduresSegmentIdx];var safeTableOrProcedureValue = System.Net.WebUtility.UrlDecode(System.Net.WebUtility.UrlDecode(segments[tableOrProcedureValueIdx]));var tableOrProcedureValue = safeTableOrProcedureValue.ToLowerInvariant();if (!string.IsNullOrWhiteSpace(internalPolicy[&quot;obfuscations&quot;]?[tableOrProcedureValue]?.ToString())){tableOrProcedureValue = internalPolicy[&quot;obfuscations&quot;]?[tableOrProcedureValue].ToString();segments[tableOrProcedureValueIdx] = tableOrProcedureValue;}if (string.Equals(tablesOrProceduresSegment, &quot;tables&quot;, StringComparison.OrdinalIgnoreCase)){var allowedMethods = internalPolicy[&quot;datasets&quot;]?[dataset]?[&quot;tabularActions&quot;]?[tableOrProcedureValue]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedMethods != null &amp;&amp; allowedMethods.Contains(context.Request.Method, StringComparer.OrdinalIgnoreCase)){return string.Join(&quot;/&quot;, segments);}throw new Exception($&quot;EXPECTED403: Method {context.Request.Method} is not allowed for table {safeTableOrProcedureValue}&quot;);}if (string.Equals(context.Operation.Id, &quot;ExecuteProcedure_V2&quot;, StringComparison.OrdinalIgnoreCase)){if (string.Equals(tablesOrProceduresSegment, &quot;procedures&quot;, StringComparison.OrdinalIgnoreCase)){var allowedProcedures = internalPolicy[&quot;datasets&quot;]?[dataset]?[&quot;serviceActions&quot;]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedProcedures != null &amp;&amp; allowedProcedures.Contains(tableOrProcedureValue, StringComparer.OrdinalIgnoreCase)){return string.Join(&quot;/&quot;, segments);}throw new Exception($&quot;EXPECTED403: Procedure {safeTableOrProcedureValue} is not allowed&quot;);}}throw new Exception($&quot;EXPECTED403: Action {context.Operation.Id} is not allowed&quot;);}catch (Exception exception){if (exception.Message.StartsWith(&quot;EXPECTED&quot;)){throw exception;}throw new Exception(&quot;EXPECTED500: Unexpected error validating v3 execution restrictions:\\n&quot; + exception.Message);}}\" /></when></choose></when></choose><set-header name=\"X-MS-APIM-Tokens\" exists-action=\"delete\" /><cache-lookup-value key=\"@{var connectionId = (string)context.Variables[&quot;connectionId&quot;];return &quot;access_token&quot; + connectionId;}\" variable-name=\"AccessToken\" caching-type=\"internal\" /><choose><when condition=\"@(true)\"><send-request mode=\"new\" response-variable-name=\"IssueTokenResponse\" timeout=\"60\" ignore-error=\"false\"><set-url>https://apiv2.eightfold-wu.ai/oauth/v1/authenticate</set-url><set-method>POST</set-method><set-header name=\"Content-Type\" exists-action=\"override\"><value>application/x-www-form-urlencoded</value></set-header><set-header name=\"Authorization\" exists-action=\"override\"><value>@{if (!context.Variables.ContainsKey(\"tokens\") || ((JObject)context.Variables[\"tokens\"]).GetValue(\"key\", StringComparison.OrdinalIgnoreCase) == null || ((JObject)context.Variables[\"tokens\"]).GetValue(\"Authorization\", StringComparison.OrdinalIgnoreCase) == null || ((JObject)context.Variables[\"tokens\"]).GetValue(\"secret\", StringComparison.OrdinalIgnoreCase) == null){throw new Exception(\"EXPECTED400:Couldn't access login credentials. Check your connection to EightFold.\");}var tokens = (JObject)context.Variables[\"tokens\"];var auth = (string)tokens.GetValue(\"Authorization\", StringComparison.OrdinalIgnoreCase);return auth;}</value></set-header><set-body>@{if (!context.Variables.ContainsKey(\"tokens\") || ((JObject)context.Variables[\"tokens\"]).GetValue(\"key\", StringComparison.OrdinalIgnoreCase) == null || ((JObject)context.Variables[\"tokens\"]).GetValue(\"secret\", StringComparison.OrdinalIgnoreCase) == null){throw new Exception(\"EXPECTED400:Couldn't access login credentials. Check your connection to EightFold.\");}const string grantType = \"password\";var tokens = (JObject)context.Variables[\"tokens\"];var key = (string)tokens.GetValue(\"key\", StringComparison.OrdinalIgnoreCase);var secret = (string)tokens.GetValue(\"secret\", StringComparison.OrdinalIgnoreCase);return $\"grant_type={grantType}&amp;username={key}&amp;password={secret}\";}</set-body></send-request><choose><when condition=\"@{try{var response = (IResponse)context.Variables[&quot;IssueTokenResponse&quot;];var statusCode = response.StatusCode;return !(statusCode &gt;= 200 &amp;&amp; statusCode &lt; 300);}catch{throw new Exception(&quot;EXPECTED500: Unable to find account&quot;);}}\"><set-variable name=\"ProcessError\" value=\"@(&quot;EXPECTED401:PB-APIM-ERR-0401,Invalid API key or secret&quot;)\" /></when></choose><set-header name=\"Authorization\" exists-action=\"override\"><value>@{if (context.Variables[\"IssueTokenResponse\"] == null || ((IResponse)context.Variables[\"IssueTokenResponse\"]).Body == null || ((IResponse)context.Variables[\"IssueTokenResponse\"]).Body.As&lt;JObject&gt;(true).GetValue(\"access_token\", StringComparison.OrdinalIgnoreCase) == null){throw new Exception(\"EXPECTED401:  Error; Couldn't authenticate request.\");}var response = ((IResponse)context.Variables[\"IssueTokenResponse\"]).Body.As&lt;JObject&gt;(true);var tokenValue = response.GetValue(\"access_token\", StringComparison.OrdinalIgnoreCase);return \"Bearer \" + tokenValue;}</value></set-header></when></choose><set-header name=\"x-ms-apim-tokens\" exists-action=\"delete\" /><set-header name=\"origin\" exists-action=\"delete\" /><set-header name=\"Content-Type\" exists-action=\"override\"><value>application/json</value></set-header><set-query-parameter name=\"api-version\" exists-action=\"delete\" /></inbound><backend><forward-request timeout=\"120\" /></backend><outbound><base /><choose><when condition=\"@{int statusCode = context.Response.StatusCode;return statusCode &gt;= 200 &amp;&amp; statusCode &lt; 300;}\"><set-header name=\"Content-Type\" exists-action=\"override\"><value>application/json</value></set-header></when></choose></outbound></policies>"
+        },
+        "metadata": {
+          "source": "marketplace",
+          "brandColor": "#47008D",
+          "hideKey": "iomeightfold",
+          "stackOwner": "EightFold ai.",
+          "useNewApimVersion": "true"
+        },
+        "capabilities": [
+          "actions"
+        ],
+        "connectionParameters": {
+          "key": {
+            "type": "string",
+            "uiDefinition": {
+              "constraints": {
+                "required": "true"
+              },
+              "displayName": "Username",
+              "description": "Eightfold Project username",
+              "tooltip": "Provide API Key received during FedEx Developer portal registration"
+            }
+          },
+          "secret": {
+            "type": "securestring",
+            "uiDefinition": {
+              "constraints": {
+                "clearText": false,
+                "required": "true"
+              },
+              "displayName": "Password",
+              "description": "Eightfold Project Password",
+              "tooltip": "Provide Password received during Eightfold Developer portal registration"
+            }
+          },
+          "Authorization": {
+            "type": "securestring",
+            "uiDefinition": {
+              "constraints": {
+                "clearText": false,
+                "required": "true"
+              },
+              "displayName": "Authorization",
+              "description": "Eightfold Project Authorization",
+              "tooltip": "Provide Authorization received during Eightfold Developer portal registration"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Web/apiManagementAccounts/apis/localizedDefinitions",
+      "properties": {
+        "generalInformation": {
+          "tier": "Premium",
+          "displayName": "[localizations('connectionProviderDisplayName')]",
+          "description": "[localizations('connectionProviderDescription')]",
+          "iconUrl": "[parameters('iconUrl')]",
+          "publisher": "Microsoft"
+        },
+        "path": "eightfold",
+        "protocols": [
+          "https"
+        ],
+        "backendService": {
+          "serviceUrl": "[variables('serviceUrl')]"
+        },
+        "apiDefinitionUrl": "[deploymentContext('apiDefinitionUrl')]",
+        "interfaces": {},
+        "policies": {
+          "content": "<policies><inbound><set-variable name=\"isCodeless\" value=\"@(true)\" /><set-header name=\"Apihub-Subscription-Key\" exists-action=\"delete\" /><set-header name=\"Test-Info\" exists-action=\"override\"><value>test marker</value></set-header><rate-limit-by-key counter-key=\"@(context.Request.MatchedParameters[&quot;connectionId&quot;])\" calls=\"100\" renewal-period=\"60\" flexible-retry-window=\"true\" /><base /><choose><when condition=\"@{var productId = context?.Product?.Id ?? string.Empty;if (!string.Equals(productId, &quot;ApiHub&quot;, StringComparison.OrdinalIgnoreCase)){return false;}var executionRestrictions = context.Variables.GetValueOrDefault&lt;string&gt;(&quot;executionRestrictions&quot;, null);return !string.IsNullOrWhiteSpace(executionRestrictions);}\"><set-variable name=\"executionRestrictionsVersion\" value=\"@{var executionRestrictions = JObject.Parse(context.Variables[&quot;executionRestrictions&quot;] as string);return executionRestrictions[&quot;version&quot;]?.Value&lt;int?&gt;() ?? 1;}\" /><set-variable name=\"_ApimLogMessage_message\" value=\"@(&quot;Validating Execution Restrictions version: &quot; + context.Variables[&quot;executionRestrictionsVersion&quot;])\" /><log-to-eventhub logger-id=\"APIMMessageLogger\">@{string message = (string)context.Variables[\"_ApimLogMessage_message\"];message = string.IsNullOrEmpty(message) ? string.Empty : string.Concat('\"', message.Replace(\"\\\"\", \"\\\"\\\"\"), '\"');return string.Join(\",\",DateTime.UtcNow.ToString(\"o\"),context.Variables.GetValueOrDefault(\"clientRequestId\", string.Empty),context.Variables.GetValueOrDefault(\"connectionId\", string.Empty),context.Api.Name,context.Deployment.ServiceName,message,\"informational\",context.Operation.Id );}</log-to-eventhub><choose><when condition=\"@((context.Variables[&quot;executionRestrictionsVersion&quot;] as int?) == 1)\"><rewrite-uri template=\"@{try{var executionRestrictions = JObject.Parse(context.Variables[&quot;executionRestrictions&quot;] as string);var internalPolicy = JObject.Parse(executionRestrictions?[&quot;policy&quot;]?.ToString() ?? &quot;{}&quot;);var type = internalPolicy?[&quot;type&quot;]?.ToString();var segments = context.Request.Url.Path.Split('/');if (type == &quot;tabular&quot;){var apiVer = executionRestrictions[&quot;apiVer&quot;]?.Value&lt;int?&gt;() ?? 1;var pathTableIdx = apiVer &gt; 1 ? 5 : 4;if (segments.Length &lt;= pathTableIdx){throw new Exception(&quot;EXPECTED400: Error validating Execution Restrictions - Bad URL&quot;);}var table = System.Net.WebUtility.UrlDecode(System.Net.WebUtility.UrlDecode(segments[pathTableIdx]));var allowedActions = internalPolicy[&quot;dataSources&quot;]?[table.ToLowerInvariant()]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedActions != null &amp;&amp; allowedActions.Contains(context.Request.Method, StringComparer.OrdinalIgnoreCase)){return context.Request.Url.Path;}throw new Exception($&quot;EXPECTED403: Method {context.Request.Method.ToLowerInvariant()} is not allowed for table {table}&quot;);}else if (type == &quot;action&quot;){var allowedActions = internalPolicy[&quot;dataSources&quot;]?[&quot;actions&quot;]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedActions != null &amp;&amp; allowedActions.Contains(context.Operation.Id, StringComparer.OrdinalIgnoreCase)){return context.Request.Url.Path;}throw new Exception($&quot;EXPECTED403: Action {context.Operation.Id} is not allowed&quot;);}else if (type == &quot;allow&quot;){return context.Request.Url.Path;}else if (type == &quot;unused&quot;){throw new Exception($&quot;EXPECTED403: Operation is not allowed&quot;);}throw new Exception(&quot;EXPECTED400: Error validating Execution Restrictions - Bad Execution Restrictions&quot;);}catch (Exception exception){if (exception.Message.StartsWith(&quot;EXPECTED&quot;)){throw exception;}throw new Exception(&quot;EXPECTED500: Unexpected error validating v1 execution restrictions:\\n&quot; + exception.Message);}}\" /></when><when condition=\"@((context.Variables[&quot;executionRestrictionsVersion&quot;] as int?) == 2)\"><rewrite-uri template=\"@{try{var executionRestrictions = JObject.Parse(context.Variables[&quot;executionRestrictions&quot;] as string);var internalPolicy = JObject.Parse(executionRestrictions?[&quot;policy&quot;]?.ToString() ?? &quot;{}&quot;);var segments = context.Request.Url.Path.Split('/');var apiVer = executionRestrictions[&quot;apiVer&quot;]?.Value&lt;int?&gt;() ?? -1;var hasVersionSegment = apiVer &gt;= 2 || apiVer == -1 &amp;&amp; Regex.IsMatch(segments[1], &quot;^([vV][0-9]+)$&quot;);var tablesOrProceduresSegmentIdx = hasVersionSegment ? 4 : 3;string tablesOrProceduresSegment = null;string tableOrProcedureName = null;if (segments.Length &gt; tablesOrProceduresSegmentIdx &amp;&amp;(segments[tablesOrProceduresSegmentIdx].ToLowerInvariant() == &quot;tables&quot; || segments[tablesOrProceduresSegmentIdx].ToLowerInvariant() == &quot;procedures&quot;) ){if (segments.Length &lt;= tablesOrProceduresSegmentIdx + 1){throw new Exception(&quot;EXPECTED400: Error validating Execution Restrictions - Bad URL&quot;);}tablesOrProceduresSegment = segments[tablesOrProceduresSegmentIdx].ToLowerInvariant();tableOrProcedureName = System.Net.WebUtility.UrlDecode(System.Net.WebUtility.UrlDecode(segments[tablesOrProceduresSegmentIdx + 1]));}if (tablesOrProceduresSegment == &quot;tables&quot;){var allowedMethods = internalPolicy[&quot;tabularActions&quot;]?[tableOrProcedureName.ToLowerInvariant()]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedMethods != null &amp;&amp; allowedMethods.Contains(context.Request.Method, StringComparer.OrdinalIgnoreCase)){return context.Request.Url.Path;}throw new Exception($&quot;EXPECTED403: Method {context.Request.Method} is not allowed for table {tableOrProcedureName}&quot;);}if (string.Equals(context.Operation.Id, &quot;ExecuteProcedure_V2&quot;, StringComparison.OrdinalIgnoreCase)){if (tablesOrProceduresSegment == &quot;procedures&quot;){var allowedProcedures = internalPolicy[&quot;serviceActions&quot;]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedProcedures != null &amp;&amp; allowedProcedures.Contains(tableOrProcedureName, StringComparer.OrdinalIgnoreCase)){return context.Request.Url.Path;}throw new Exception($&quot;EXPECTED403: Procedure {tableOrProcedureName} is not allowed&quot;);}throw new Exception($&quot;EXPECTED400: Error validating Execution Restrictions - Bad URL&quot;);}var allowedActions = internalPolicy[&quot;serviceActions&quot;]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedActions != null &amp;&amp; allowedActions.Contains(context.Operation.Id, StringComparer.OrdinalIgnoreCase)){return context.Request.Url.Path;}throw new Exception($&quot;EXPECTED403: Action {context.Operation.Id} is not allowed&quot;);}catch (Exception exception){if (exception.Message.StartsWith(&quot;EXPECTED&quot;)){throw exception;}throw new Exception(&quot;EXPECTED500: Unexpected error validating v2 execution restrictions:\\n&quot; + exception.Message);}}\" /></when><when condition=\"@((context.Variables[&quot;executionRestrictionsVersion&quot;] as int?) == 3)\"><rewrite-uri template=\"@{try{var executionRestrictions = JObject.Parse(context.Variables[&quot;executionRestrictions&quot;] as string);var internalPolicy = JObject.Parse(executionRestrictions?[&quot;policy&quot;]?.ToString() ?? &quot;{}&quot;);{var datasetBypassId = &quot;497fc035-eb75-479f-8486-41a848a9549a&quot;;var allowedActions = internalPolicy[&quot;datasets&quot;]?[datasetBypassId]?[&quot;serviceActions&quot;]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedActions != null &amp;&amp; allowedActions.Contains(context.Operation.Id, StringComparer.OrdinalIgnoreCase)){return context.Request.Url.Path;}}var segments = context.Request.Url.Path.Split('/');var apiVer = executionRestrictions[&quot;apiVer&quot;]?.Value&lt;int?&gt;() ?? -1;var hasVersionSegment = apiVer &gt;= 2 || apiVer == -1 &amp;&amp; segments.Length &gt; 1 &amp;&amp; Regex.IsMatch(segments[1], &quot;^([vV][0-9]+)$&quot;);var datasetsSegmentIdx = hasVersionSegment ? 2 : 1;var datasetValueIdx = datasetsSegmentIdx + 1;var tablesOrProceduresSegmentIdx = datasetsSegmentIdx + 2;var tableOrProcedureValueIdx = tablesOrProceduresSegmentIdx + 1;if (segments.Length &lt;= datasetValueIdx ||!string.Equals(segments[datasetsSegmentIdx], &quot;datasets&quot;, StringComparison.OrdinalIgnoreCase)){throw new Exception($&quot;EXPECTED403: Action {context.Operation.Id} is not allowed&quot;);}string dataset = System.Net.WebUtility.UrlDecode(System.Net.WebUtility.UrlDecode(segments[datasetValueIdx])).ToLowerInvariant();if (!string.IsNullOrWhiteSpace(internalPolicy[&quot;obfuscations&quot;]?[dataset]?.ToString())){dataset = internalPolicy[&quot;obfuscations&quot;]?[dataset].ToString();segments[datasetValueIdx] = dataset;}{var allowedActions = internalPolicy[&quot;datasets&quot;]?[dataset]?[&quot;serviceActions&quot;]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedActions != null &amp;&amp; allowedActions.Contains(context.Operation.Id, StringComparer.OrdinalIgnoreCase)){return string.Join(&quot;/&quot;, segments);}}if (segments.Length &lt;= tableOrProcedureValueIdx){throw new Exception($&quot;EXPECTED403: Action {context.Operation.Id} is not allowed&quot;);}var tablesOrProceduresSegment = segments[tablesOrProceduresSegmentIdx];var safeTableOrProcedureValue = System.Net.WebUtility.UrlDecode(System.Net.WebUtility.UrlDecode(segments[tableOrProcedureValueIdx]));var tableOrProcedureValue = safeTableOrProcedureValue.ToLowerInvariant();if (!string.IsNullOrWhiteSpace(internalPolicy[&quot;obfuscations&quot;]?[tableOrProcedureValue]?.ToString())){tableOrProcedureValue = internalPolicy[&quot;obfuscations&quot;]?[tableOrProcedureValue].ToString();segments[tableOrProcedureValueIdx] = tableOrProcedureValue;}if (string.Equals(tablesOrProceduresSegment, &quot;tables&quot;, StringComparison.OrdinalIgnoreCase)){var allowedMethods = internalPolicy[&quot;datasets&quot;]?[dataset]?[&quot;tabularActions&quot;]?[tableOrProcedureValue]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedMethods != null &amp;&amp; allowedMethods.Contains(context.Request.Method, StringComparer.OrdinalIgnoreCase)){return string.Join(&quot;/&quot;, segments);}throw new Exception($&quot;EXPECTED403: Method {context.Request.Method} is not allowed for table {safeTableOrProcedureValue}&quot;);}if (string.Equals(context.Operation.Id, &quot;ExecuteProcedure_V2&quot;, StringComparison.OrdinalIgnoreCase)){if (string.Equals(tablesOrProceduresSegment, &quot;procedures&quot;, StringComparison.OrdinalIgnoreCase)){var allowedProcedures = internalPolicy[&quot;datasets&quot;]?[dataset]?[&quot;serviceActions&quot;]?.ToObject&lt;List&lt;string&gt;&gt;();if (allowedProcedures != null &amp;&amp; allowedProcedures.Contains(tableOrProcedureValue, StringComparer.OrdinalIgnoreCase)){return string.Join(&quot;/&quot;, segments);}throw new Exception($&quot;EXPECTED403: Procedure {safeTableOrProcedureValue} is not allowed&quot;);}}throw new Exception($&quot;EXPECTED403: Action {context.Operation.Id} is not allowed&quot;);}catch (Exception exception){if (exception.Message.StartsWith(&quot;EXPECTED&quot;)){throw exception;}throw new Exception(&quot;EXPECTED500: Unexpected error validating v3 execution restrictions:\\n&quot; + exception.Message);}}\" /></when></choose></when></choose><set-header name=\"X-MS-APIM-Tokens\" exists-action=\"delete\" /><cache-lookup-value key=\"@{var connectionId = (string)context.Variables[&quot;connectionId&quot;];return &quot;access_token&quot; + connectionId;}\" variable-name=\"AccessToken\" caching-type=\"internal\" /><choose><when condition=\"@(true)\"><send-request mode=\"new\" response-variable-name=\"IssueTokenResponse\" timeout=\"60\" ignore-error=\"false\"><set-url>https://apiv2.eightfold-wu.ai/oauth/v1/authenticate</set-url><set-method>POST</set-method><set-header name=\"Content-Type\" exists-action=\"override\"><value>application/x-www-form-urlencoded</value></set-header><set-header name=\"Authorization\" exists-action=\"override\"><value>@{if (!context.Variables.ContainsKey(\"tokens\") || ((JObject)context.Variables[\"tokens\"]).GetValue(\"key\", StringComparison.OrdinalIgnoreCase) == null || ((JObject)context.Variables[\"tokens\"]).GetValue(\"Authorization\", StringComparison.OrdinalIgnoreCase) == null || ((JObject)context.Variables[\"tokens\"]).GetValue(\"secret\", StringComparison.OrdinalIgnoreCase) == null){throw new Exception(\"EXPECTED400:Couldn't access login credentials. Check your connection to EightFold.\");}var tokens = (JObject)context.Variables[\"tokens\"];var auth = (string)tokens.GetValue(\"Authorization\", StringComparison.OrdinalIgnoreCase);return auth;}</value></set-header><set-body>@{if (!context.Variables.ContainsKey(\"tokens\") || ((JObject)context.Variables[\"tokens\"]).GetValue(\"key\", StringComparison.OrdinalIgnoreCase) == null || ((JObject)context.Variables[\"tokens\"]).GetValue(\"secret\", StringComparison.OrdinalIgnoreCase) == null){throw new Exception(\"EXPECTED400:Couldn't access login credentials. Check your connection to EightFold.\");}const string grantType = \"password\";var tokens = (JObject)context.Variables[\"tokens\"];var key = (string)tokens.GetValue(\"key\", StringComparison.OrdinalIgnoreCase);var secret = (string)tokens.GetValue(\"secret\", StringComparison.OrdinalIgnoreCase);return $\"grant_type={grantType}&amp;username={key}&amp;password={secret}\";}</set-body></send-request><choose><when condition=\"@{try{var response = (IResponse)context.Variables[&quot;IssueTokenResponse&quot;];var statusCode = response.StatusCode;return !(statusCode &gt;= 200 &amp;&amp; statusCode &lt; 300);}catch{throw new Exception(&quot;EXPECTED500: Unable to find account&quot;);}}\"><set-variable name=\"ProcessError\" value=\"@(&quot;EXPECTED401:PB-APIM-ERR-0401,Invalid API key or secret&quot;)\" /></when></choose><set-header name=\"Authorization\" exists-action=\"override\"><value>@{if (context.Variables[\"IssueTokenResponse\"] == null || ((IResponse)context.Variables[\"IssueTokenResponse\"]).Body == null || ((IResponse)context.Variables[\"IssueTokenResponse\"]).Body.As&lt;JObject&gt;(true).GetValue(\"access_token\", StringComparison.OrdinalIgnoreCase) == null){throw new Exception(\"EXPECTED401:  Error; Couldn't authenticate request.\");}var response = ((IResponse)context.Variables[\"IssueTokenResponse\"]).Body.As&lt;JObject&gt;(true);var tokenValue = response.GetValue(\"access_token\", StringComparison.OrdinalIgnoreCase);return \"Bearer \" + tokenValue;}</value></set-header></when></choose><set-header name=\"x-ms-apim-tokens\" exists-action=\"delete\" /><set-header name=\"origin\" exists-action=\"delete\" /><set-header name=\"Content-Type\" exists-action=\"override\"><value>application/json</value></set-header><set-query-parameter name=\"api-version\" exists-action=\"delete\" /></inbound><backend><forward-request timeout=\"120\" /></backend><outbound><base /><choose><when condition=\"@{int statusCode = context.Response.StatusCode;return statusCode &gt;= 200 &amp;&amp; statusCode &lt; 300;}\"><set-header name=\"Content-Type\" exists-action=\"override\"><value>application/json</value></set-header></when></choose></outbound></policies>"
+        },
+        "metadata": {
+          "source": "marketplace",
+          "brandColor": "#47008D",
+          "hideKey": "iomeightfold",
+          "stackOwner": "EightFold ai.",
+          "useNewApimVersion": "true"
+        },
+        "capabilities": [
+          "actions"
+        ],
+        "connectionParameters": "[localizations('connectionParameters')]"
+      }
+    }
+  ],
+  "outputs": {}
+}
