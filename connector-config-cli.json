@@ -1,0 +1,10 @@
+{
+  "properties": {
+    "iconBrandColor": "#47008D",
+    "capabilities": [
+      "actions"
+    ],
+    "publisher": "Microsoft",
+    "stackOwner": "EightFold."
+  }
+}
